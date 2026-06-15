@@ -11,11 +11,10 @@ import dagshub
 import os
 
 # Setup DagsHub + MLflow
-dagshub.init(
-    repo_owner='ArfaniAsra',
-    repo_name='Eksperimen_SML_Muhammad-Arfani-Asra',
-    mlflow=True
-)
+mlflow.set_tracking_uri(os.environ.get(
+    'MLFLOW_TRACKING_URI',
+    'https://dagshub.com/ArfaniAsra/Eksperimen_SML_Muhammad-Arfani-Asra.mlflow'
+))
 
 def load_data(path):
     df = pd.read_csv(path)
